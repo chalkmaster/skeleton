@@ -1,0 +1,3 @@
+export enum ServiceStatus {
+  ONLINE = 'ONLINE', OFFLINE = 'OFFLINE', TIMEOUT = 'TIMEOUT', UNREACHABLE = 'UNREACHABLE'
+}

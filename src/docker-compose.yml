@@ -1,0 +1,37 @@
+version: "3.3"
+services:
+  skeleton_api:
+    container_name: skeleton_api #sample - change here
+    restart: always
+    build: "./api/"
+    ports:
+      - "6001:6001"
+    depends_on: 
+      - redis
+    links:
+      - redis
+    environment:
+      - JWT_SECRET=iJIUzI1#ˆNiI@sInR5cCI6IkpXVC #sample - change here
+      - JWT_TOKEN_EXPIRATION_SECONDS=180
+      - LOGIN_ATTEMPTS_DURATION=60
+      - NODE_ENV=production
+      - MAX_QUOTA=100
+      - MAX_LOGIN_ATTEMPTS=5
+      - PORT=6001
+      - QUOTA_DURATION=100
+      - REDIS_URL=redis://sessions 
+      - SESSION_EXPIRATION_SECONDS=300
+      - SMS_TOKEN_EXPIRATION_SECONDS=60
+      - UUID_DNS=skeleton.mydomain.com.br #sample - change here
+      - VERSION=1.0.0
+  skeleton_client:
+    container_name: skeleton_client
+    restart: always
+    build: "./client/"
+    ports:
+      - "80:80"
+    depends_on: 
+      - skeleton_api
+  redis:
+    image: redis:alpine
+    container_name: sessions

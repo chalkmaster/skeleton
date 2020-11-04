@@ -1,0 +1,56 @@
+//CSS class preffix
+$p: "bs-";
+
+
+// Useful colors
+@import '~@angular/material/theming';
+@include mat-core();
+
+$bs-theme-primary: mat-palette($mat-light-blue, 800);
+$bs-theme-accent: mat-palette($mat-cyan, 700);
+$bs-theme-error: mat-palette($mat-red, 800);
+$bs-theme-success: mat-palette($mat-green);
+$bs-theme-warning: mat-palette($mat-orange, 400);
+$bs-theme-cuc: mat-palette($mat-blue, 600);
+$bs-theme-suspect: mat-palette($mat-purple, 600);
+$bs-theme-body-bg: #ECEFF1;
+
+$bs-theme-black: rgba(#000, .87);
+$bs-theme-black-2: rgba(#000, .54);
+$bs-theme-black-3: rgba(#000, .28);
+$bs-theme-black-4: rgba(#000, .12);
+$bs-theme-black-5: rgba(#000, .08);
+
+$bs-theme-white: rgba(#FFF, 1);
+$bs-theme-white-2: rgba(#FFF, .7);
+$bs-theme-white-3: rgba(#FFF, .3);
+$bs-theme-white-4: rgba(#FFF, .16);
+
+
+// Radius
+$bs-radiusMini: 2px;
+$bs-radiusSm: 4px;
+$bs-radius: 8px;
+$bs-radiusFullyRounded: 50%;
+
+
+// Transitions
+$bs-easing: cubic-bezier(0.4, 0.0, 0.2, 1);
+$bs-dEasing: cubic-bezier(0.0, 0.0, 0.2, 1);
+$bs-aEasing: cubic-bezier(0.4, 0.0, 1, 1);
+
+
+// Angular Material Theme
+// https://material.angular.io/guide/theming
+
+$bs-theme-theme: mat-light-theme($bs-theme-primary, $bs-theme-accent, $bs-theme-error);
+@include angular-material-theme($bs-theme-theme);
+
+
+// Margins
+$bs-mg-vertical: (0, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72);
+$bs-mg-horizontal: (0, 4, 8, 16, 20, 24, 32, 40, 48, 56, 64, 72);
+
+// Paddings
+$bs-pd-vertical: (0, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 96);
+$bs-pd-horizontal: (0, 4, 8, 16, 20, 24, 32, 40, 48, 56, 64, 72);

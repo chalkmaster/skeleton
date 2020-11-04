@@ -1,0 +1,45 @@
+<mat-toolbar class="bs-pt-8 bs-pb-8"
+             color="primary"
+             style="height: 53px">
+  <mat-toolbar-row class="bs-container bs-container--force-width bs-flex bs-flex--space-between">
+    <div class="bs-flex bs-flex--align-center">
+      <img class="skeleton-logo" src="./../../assets/skeleton_squared_white.png" />
+      <span>skeleton</span>
+      <mat-divider class="bs-h24px bs-ml-40-force bs-mr-24-force"
+                   [vertical]="true"></mat-divider>
+      <nav *ngIf="isLoggedIn">
+        <span>{{ this.userData?.companyName }}</span>
+        <button routerLink="/equalization"
+                routerLinkActive="active"
+                mat-button>Equalização</button>
+        <button routerLink="/subrogation"
+                routerLinkActive="active"
+                mat-button>Subrogação</button>
+      </nav>
+    </div>
+    <div class="bs-flex bs-flex--align-center" *ngIf="isLoggedIn">
+      <nav>
+        <button routerLink="/settings"
+          routerLinkActive="active"
+          mat-button>Configurações</button>
+      </nav>
+      <mat-divider class="bs-h24px bs-ml-40-force bs-mr-24-force"
+        [vertical]="true"></mat-divider>
+      <button mat-button
+              [matMenuTriggerFor]="beforeMenu">
+        <span class="bs-ml-8">{{ this.userData?.userName }}</span>
+        <mat-icon aria-hidden="true">arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #beforeMenu="matMenu"
+                xPosition="before">
+        <button class="bs-text-right-force"
+                mat-menu-item
+                (click)="logout()">
+          <span>Sair</span>
+          <mat-icon class="bs-ml-8 bs-mr-0-force"
+                    aria-hidden="true">logout</mat-icon>
+        </button>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

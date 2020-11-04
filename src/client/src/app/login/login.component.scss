@@ -1,0 +1,66 @@
+$bsl-easing: cubic-bezier(0.4, 0.0, 0.2, 1);
+$bsl-dEasing: cubic-bezier(0.0, 0.0, 0.2, 1);
+$bsl-aEasing: cubic-bezier(0.4, 0.0, 1, 1);
+
+.bs-login-container {
+  width: 480px;
+  max-width: calc(100vw - 48px);
+
+  &:not([class*="bs-mt"]) {
+    margin-top: 0;
+  }
+
+  &:not([class*="bs-mr"]) {
+    margin-right: auto;
+  }
+
+  &:not([class*="bs-ml"]) {
+    margin-left: auto;
+  }
+
+  &:not([class*="bs-mb"]) {
+    margin-bottom: 0;
+  }
+}
+
+button:disabled {
+  box-shadow: 0 0 !important;
+}
+
+.bsl-location-request {
+  transition: opacity 175ms $bsl-dEasing 0ms, transform 175ms $bsl-dEasing 0ms, max-height 0ms linear 175ms;
+  transform: translateY(-24px);
+  opacity: 0;
+  max-height: 0;
+
+  &--visible {
+    transition: opacity 275ms $bsl-dEasing 375ms, transform 175ms $bsl-dEasing 375ms, max-height 275ms linear 100ms;
+    transform: translateY(0);
+    opacity: 1;
+    max-height: 100vh;
+  }
+}
+
+// HACK
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.bs-skeleton-colored-logo {
+  height: 64px;
+  float: left;
+}
+
+.bs-login-card-title {
+  font-size: 29px;
+  line-height: 64px;
+  margin: 0;
+}

@@ -1,0 +1,45 @@
+.mat-toolbar--bs-offline-warning {
+  min-height: auto;
+  > .mat-toolbar-row {
+    height: auto;
+    padding: 12px 16px;
+  }
+}
+
+.mat-toolbar-multiple-rows {
+  min-height: auto;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  height: auto;
+}
+
+button.mat-button.mat-button-base {
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    bottom: -8px;
+    background-color: rgba(255,255,255,0.54);
+    left: 0;
+    transition: transform 175ms ease-in-out 200ms;
+    transform: scaleY(0);
+    border-radius: 2px 2px 0 0;
+  }
+
+  &.active:after {
+    transform: scaleY(1);
+  }
+
+  &:after {
+    transform-origin: 0% 100%;
+  }
+}
+
+.skeleton-logo {
+  height: 38px;
+  margin-right: 10px;
+}

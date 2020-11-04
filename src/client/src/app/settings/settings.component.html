@@ -1,0 +1,151 @@
+<div class="bsl-general-loading
+            bs-loading bs-loading--active
+            bs-loading--white-backdrop
+            bs-affix"
+     *ngIf="false">
+  <mat-spinner strokeWidth="4"></mat-spinner>
+</div>
+
+<div class="bs-container bs-relative">
+  <mat-card class="bs-pd-0-force bs-mb-32">
+    <div class="bs-flex bs-flex--align-top"
+         #bslFormContainer>
+      <div class="bsl-form-container bs-full-width bs-relative">
+        <div class="bsl-general-header"
+             [ngClass]="{'bsl-general-header--visible' : true}"
+             *ngIf="true">
+          <div class="bsl-general-header__container bs-container">
+            <div class="bsl-general-header__container__content bs-relative bs-flex bs-flex--align-center">
+              <div class="bs-pr-16 bs-no-shrink">
+                <mat-icon class="bs-color-accent bs-bg-white"
+                          *ngIf="true">
+                  settings
+                </mat-icon>
+              </div>
+              <h3 class="mat-title bs-mg-0 bs-pr-16 bs-pt-16">
+                Configurações
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>
+
+<!-- content start -->
+<div class="bs-full-width"
+     style="top:145px; bottom: 85px;">
+  <div class="bs-container bs-bg-body">
+    <mat-card>
+      <mat-card-content>
+        <mat-sidenav-container style="background-color: white;">
+          <mat-sidenav mode="side"
+                       opened
+                       [fixedInViewport]="false">
+            <mat-nav-list>
+              <a mat-list-item
+                 href="/settings#company"> Dados da Empresa </a>
+              <a mat-list-item
+                 href="/settings#user"> Usuários </a>
+              <a mat-list-item
+                 href="/settings#notification"> Notificações </a>
+              <a mat-list-item
+                 href="/settings#equalization"> Parametros da Equalização </a>
+              <a mat-list-item
+                 href="/settings#subrogation"> Parametros da Subrogação </a>
+            </mat-nav-list>
+          </mat-sidenav>
+          <mat-sidenav-content class="bs-pl-24"
+                               style="height: 600px;">
+            <div id="company">
+              <h1>Dados da Empresa</h1>
+              <div>
+                <h2>Teste</h2>
+                <app-incremental-simple-list class="bs-full-width"
+                                             [(itens)] = "allowedDns"
+                                             [placeholder] = "'Adicionar domínio de E-mail autorizado'"
+                                             [regexValidation]="'\\w+\\.[a-zA-Z]{2,3}'"
+                                             [filedName] = "'allowed-dns'">
+                </app-incremental-simple-list>
+                <app-incremental-simple-list [(itens)] = "allowedIP"
+                                             [placeholder] = "'Adicionar IP autorizados'"
+                                             [regexValidation]="'^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$'"
+                                             [filedName] = "'allowed-ip'">
+                </app-incremental-simple-list>
+                <app-incremental-simple-list [(itens)] = "blockedIP"
+                                             [placeholder] = "'Adicionar IPs bloqueados'"
+                                             [regexValidation]="'^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$'"
+                                             [filedName] = "'blocked-ip'">
+                </app-incremental-simple-list>
+              </div>
+          </div>
+            <div id="user">
+              <h1>Usuários</h1>
+              <div style="height: 600px; width: 100%;"></div>
+            </div>
+            <div id="notification">
+              <h1>Motificações</h1>
+              <div style="height: 200px; width: 100%;"></div>
+            </div>
+            <div id="equalization">
+              <h1>Parametros da Equalização</h1>
+              <div style="height: 400px; width: 100%;"></div>
+            </div>
+            <div id="subrogation">
+              <h1>Parametros da Subrogação</h1>
+              <div style="height: 300px; width: 100%;"></div>
+            </div>
+          </mat-sidenav-content>
+        </mat-sidenav-container>
+      </mat-card-content>
+      <mat-card-footer>
+        <div class="bs-container bs-bg-body bs-pd-0-force bs-radius--bottom-force">
+          <mat-card class="bs-pd-0-force">
+            <mat-divider></mat-divider>
+            <div class="bs-flex bs-flex--space-between bs-pl-24 bs-pr-24 bs-pt-8 bs-pb-8">
+              <div class="bs-pl-24">
+                <button class="bs-no-shrink bs-text-uppercase"
+                        mat-stroked-button
+                        color="primary"
+                        *ngIf="true">
+                  <span class="bs-pr-4">Histórico de Acesso</span>
+                </button>
+              </div>
+              <div class="bs-text-right bs-relative">
+                <button class="bs-mr-8-force"
+                        mat-stroked-button
+                        color="primary">
+                  <span class="bs-text-uppercase">Descartar</span>
+                </button>
+                <button class="bs-mr-8-force"
+                        mat-stroked-button
+                        color="primary"
+                        (click)="save()"
+                        [disabled]="!true">
+                  <span class="bs-text-uppercase">Salvar</span>
+                </button>
+                <button mat-raised-button
+                        color="primary"
+                        [disabled]="!true">
+                  <span class="bs-text-uppercase">Salvar e voltar</span>
+                </button>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>
+
+<div class="bsl-general-loading
+            bs-loading bs-loading--active
+            bs-loading--white-backdrop
+            bs-absolute"
+     *ngIf="false">
+</div>
+<div class="bs-affix-force bsl-general-spinner">
+  <mat-spinner *ngIf="false"
+               strokeWidth="4"></mat-spinner>
+</div>

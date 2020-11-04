@@ -1,0 +1,13 @@
+.bsl-header {
+  &:not(.bsl-header--visible) {
+    transform: scale(0);
+    height: 0;
+    opacity: 0;
+    display: block;
+  }
+}
+
+.skeleton-logo {
+  height: 38px;
+  margin-right: 10px;
+}

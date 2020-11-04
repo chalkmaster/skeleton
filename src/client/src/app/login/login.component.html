@@ -1,0 +1,95 @@
+<div [ngClass]="{'bsl-location-request--visible': invalidLocation}"
+     class="bsl-location-request bs-flex bs-flex--align-center bs-flex--justify-center bs-flex--column bs-text-center bs-pt-24">
+  <div class="bs-container">
+    <mat-card class="bs-pd-24">
+      <h1 class="mat-display-1 bs-color-primary bs-mg-0 bs-mb-16">Ops!</h1>
+      <h2 class="mat-subheading-1 bs-color-black-2 bs-mg-0">
+        Siga as instruções para habilitar a localização do seu navegador
+      </h2>
+      <div class="bs-mt-16">
+        <img class="bs-full-width"
+             src="../../assets/loginHelp.png">
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<form id="loginForm"
+      class="bs-flex bs-flex--align-center bs-flex--justify-center bs-flex--column bs-text-center"
+      style="height: 100vh;">
+  <mat-card class="bs-login-container bs-full-width bs-pd-0-force"
+            [ngClass]="{'bs-error-shake': animateShake}">
+    <mat-card-title class="bs-pd-24">
+      <img class="bs-skeleton-colored-logo" src="../../assets/skeleton_min_colored.png" />
+      <h1 class="mat-display-2 bs-color-primary bs-mg-0 bs-login-card-title">Informe suas credenciais</h1>
+    </mat-card-title>
+    <mat-card-content class="bs-pd-0 bs-pr-24 bs-pl-24">
+      <div class="bs-color-black-2">Passo {{step}} de 3</div>
+      <mat-form-field class="bs-full-width bs-mb-8" [ngStyle]="{display: step === 1 ? 'block' : 'none'}">
+        <input matInput
+               #usernameField
+               name="username"
+               [(ngModel)]="username"
+               autocomplete="username"
+               placeholder="Usuário">
+      </mat-form-field>
+      <mat-form-field class="bs-full-width" [ngStyle]="{display: step === 2 ? 'block' : 'none'}">
+        <input matInput
+               #passwordField
+               autocomplete="current-password"
+               name="password"
+               type="password"
+               [(ngModel)]="password"
+               placeholder="Senha">
+      </mat-form-field>
+      <div [ngStyle]="{display: step === 3 ? 'block' : 'none'}">
+        <span class="bs-color-black-2" *ngIf="!!userAuthPhone"> {{'Token enviado para o telefone ' + userAuthPhone }}</span>
+        <button (click)="requestSmsToken(username, password)"
+              mat-raised-button
+              class="bs-mt-16"
+              color="accent">{{ 'Reenviar token por sms' | uppercase }}</button>
+        <mat-form-field class="bs-full-width bs-mt-16">
+          <input matInput
+                #tokenField
+                name="smsToken"
+                type="string"
+                [(ngModel)]="smsToken"
+                placeholder="SMS Token">
+        </mat-form-field>
+      </div>
+      <div class="bs-loading bs-loading--active bs-loading--white-backdrop bs-absolute bs-radius--sm"
+          *ngIf="isLoading"
+          style="top: 0; left: 0">
+        <mat-spinner strokeWidth="4"></mat-spinner>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="bs-pd-24-force bs-pt-8-force bs-pb-32-force bs-mg-0-force">
+      <button (click)="previous()"
+              *ngIf="step !== 1"
+              mat-raised-button
+              type="button"
+              color="accent">{{ 'Passo Anterior' | uppercase }}</button>
+      <button (click)="next()"
+              *ngIf="step === 1"
+              [disabled]="isLoading || !username"
+              mat-raised-button
+              color="primary">{{ 'Próximo Passo' | uppercase }}</button>
+      <button (click)="next()"
+              *ngIf="step === 2"
+              [disabled]="isLoading || !password"
+              mat-raised-button
+              color="primary">{{ 'Próximo Passo' | uppercase }}</button>
+      <button (click)="next()"
+              *ngIf="step === 3"
+              [disabled]="isLoading || !smsToken"
+              mat-raised-button
+              color="primary">{{ 'Entrar' | uppercase }}</button>
+    </mat-card-actions>
+  </mat-card>
+  <div class="bs-login-container bs-pd-24">
+    <p class="bs-color-black-3 bs-mg-0 mat-caption">
+      Versão
+      <span>{{ appVersion }}</span>
+    </p>
+  </div>
+</form>

@@ -1,0 +1,78 @@
+<div class="bs-full-width bs-pt-24 bs-pl-16">
+  <h1 class="bs-color-primary">{{summaryModel?.productName}}</h1>
+  <div class="bs-pb-16 bs-pt-24 bs-color-primary bs-pl-24 bs-pr-24 bs-flex bs-flex--space-between bs-full-width">
+    <span class="bsl-summary-item-title">Receita de Equalização de Taxas</span>
+    <span class="bsl-summary-item-value">
+      <span>(+)</span>
+      <span class="bs-pr-32 bs-pl-32">{{ summaryModel?.feeRevenue | currency:'BRL' }}</span>
+    </span>
+    <button mat-icon-button
+            class="bs-no-print"
+            (click)="openDetails(summaryModel?.feeRevenueDetailLink)">
+      <mat-icon>open_in_new</mat-icon>
+    </button>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="bs-pb-16 bs-pt-24 bs-color-primary bs-pl-24 bs-pr-24 bs-flex bs-flex--space-between bs-full-width">
+    <span class="bsl-summary-item-title">Receita de Originação de Tarifa de Crédito</span>
+    <span class="bsl-summary-item-value">
+      <span>(+)</span>
+      <span class="bs-pr-32 bs-pl-32">{{summaryModel?.creditRateRevenue | currency:'BRL'}}</span>
+    </span>
+    <button mat-icon-button
+            class="bs-no-print"
+            (click)="openDetails(summaryModel?.creditRateRevenueDetailLink)">
+      <mat-icon>open_in_new</mat-icon>
+    </button>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="bs-pb-16 bs-pt-24 bs-color-primary bs-pl-24 bs-pr-24 bs-flex bs-flex--space-between bs-full-width">
+    <span class="bsl-summary-item-title">Receita com Jurus e Mora (20% do valor total arrecadado)</span>
+    <span class="bsl-summary-item-value">
+      <span>(+)</span>
+      <span class="bs-pr-32 bs-pl-32">{{summaryModel?.interestAndArrearsRevenue | currency:'BRL'}}</span>
+    </span>
+    <button mat-icon-button
+            class="bs-no-print"
+            (click)="openDetails(summaryModel?.interestAndArrearsRevenueDetailLink)">
+      <mat-icon>open_in_new</mat-icon>
+    </button>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="bs-pb-16 bs-pt-24 bs-color-error bs-pl-24 bs-pr-24 bs-flex bs-flex--space-between bs-full-width">
+    <span class="bsl-summary-item-title">Reembolso de Despesas Operacionais</span>
+    <span class="bsl-summary-item-value">
+      <span>(-)</span>
+      <span class="bs-pr-32 bs-pl-32">{{summaryModel?.operatingExpensesReimbursement | currency:'BRL'}}</span>
+    </span>
+    <button mat-icon-button
+            class="bs-no-print"
+            (click)="openDetails(summaryModel?.operatingExpensesReimbursementDetailLink)">
+      <mat-icon>open_in_new</mat-icon>
+    </button>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="bs-pb-16 bs-pt-24 bs-color-error bs-pl-24 bs-pr-24 bs-flex bs-flex--space-between bs-full-width">
+    <span class="bsl-summary-item-title bs-flex bs-flex--column">
+      <span>Reembolso de Impotos (PIS, Cofins e ISS)</span>
+      <span class="bs-color-black-2 bs-full-width">
+        Obs: 4,65% de PIS e Confins sobre receitas de juros e TC + 5% de ISS sobre receita de prestação de serviços, TC.
+      </span>
+    </span>
+    <span class="bsl-summary-item-value">
+      <span>(-)</span>
+      <span class="bs-pr-32 bs-pl-32">{{summaryModel?.taxRefunds | currency:'BRL'}}</span>
+    </span>
+    <button mat-icon-button
+            class="bs-no-print"
+            (click)="openDetails(summaryModel?.taxRefundsDetailLink)">
+      <mat-icon>open_in_new</mat-icon>
+    </button>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="bs-pt-16 bs-color-primary bs-pl-8 bs-pr-24 bs-flex bs-flex--space-between bs-full-width">
+    <h2 class="bs-color-primary">Equalização liquida a pagar</h2>
+    <h2 class="bs-color-primary"
+        style="min-width: 35%;">{{summaryModel?.netEqualization | currency:'BRL'}}</h2>
+  </div>
+</div>

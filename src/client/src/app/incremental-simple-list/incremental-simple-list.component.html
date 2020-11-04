@@ -1,0 +1,27 @@
+<div>
+  <form class="bs-full-width bs-flex" [ngClass]="{'bs-error-shake': animateShake}">
+    <mat-form-field class="bs-full-width">
+      <input matInput
+             name="{{filedName}}"
+             [(ngModel)]="listItem"
+             autocomplete="{{filedName}}"
+             placeholder="{{placeholder}}">
+    </mat-form-field>
+    <button mat-flat-button
+            (click)="add(listItem)"
+            type="submit"
+            class="bs-color-primary bs-bg-white">
+      <mat-icon>add</mat-icon>
+    </button>
+  </form>
+  <ul>
+    <li *ngFor="let item of itens; index as idx">
+      <span class="bs-color-black">{{item}}</span>
+      <button mat-flat-button
+              (click)="remove(idx)"
+              class="bs-color-primary bs-bg-white">
+        <mat-icon>close</mat-icon>
+      </button>
+    </li>
+  </ul>
+</div>

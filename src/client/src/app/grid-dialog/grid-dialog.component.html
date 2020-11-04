@@ -1,0 +1,58 @@
+<div class="bs-loading bs-loading--active bs-loading--white-backdrop bs-radius--sm bs-absolute"
+     *ngIf="isLoading"
+     style="top: 0; left: 0; z-index: 99999;">
+  <mat-spinner strokeWidth="4"></mat-spinner>
+</div>
+<div mat-dialog-title
+     class="bs-flex bs-flex--space-between">
+  <button mat-icon-button
+          mat-dialog-close
+          style="float: right;"
+          color="secondary">
+    <mat-icon>close</mat-icon>
+  </button>
+  <h1 class="bs-color-primary">
+    Receita de Equalização de Taxas - Total: R$ 4.518.371,52
+  </h1>
+</div>
+
+<div mat-dialog-content>
+  <table mat-table
+         [dataSource]="dataSource"
+         matSort>
+    <ng-container [matColumnDef]="column"
+                  *ngFor="let column of columns">
+      <th mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header> {{columnsName[column.toUpperCase()] || column}} </th>
+      <td mat-cell
+          *matCellDef="let element"> {{applyMask(column, element[column])}} </td>
+    </ng-container>
+    <tr mat-header-row
+        *matHeaderRowDef="columns; sticky: true"></tr>
+    <tr mat-row
+        *matRowDef="let row; columns: columns;"></tr>
+  </table>
+</div>
+<mat-paginator [pageSize]="response?.pageSize"
+               [length]="response?.totalPage"
+               (page)="navigate($event)"></mat-paginator>
+<div mat-dialog-actions
+     class="bs-flex bs-flex--space-between bs-pl-24 bs-pr-24 bs-pt-8 bs-pb-8">
+  <div class="bs-pl-24">
+    <button class="bs-no-shrink bs-text-uppercase"
+            mat-stroked-button
+            color="primary"
+            (click)="openHistory()">
+      <span class="bs-pr-4">Histórico de Acesso</span>
+    </button>
+  </div>
+  <div class="bs-text-right bs-relative">
+    <button mat-raised-button
+            color="primary"
+            [disabled]="!true">
+      <mat-icon class="bs-mr-8">system_update_alt</mat-icon>
+      <span class="bs-text-uppercase">EXCEL</span>
+    </button>
+  </div>
+</div>
