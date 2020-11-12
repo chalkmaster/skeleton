@@ -11,17 +11,17 @@
         <span>{{ this.userData?.companyName }}</span>
         <button routerLink="/equalization"
                 routerLinkActive="active"
-                mat-button>Equalização</button>
+                mat-button>Equalization</button>
         <button routerLink="/subrogation"
                 routerLinkActive="active"
-                mat-button>Subrogação</button>
+                mat-button>Subrogation</button>
       </nav>
     </div>
     <div class="bs-flex bs-flex--align-center" *ngIf="isLoggedIn">
       <nav>
         <button routerLink="/settings"
           routerLinkActive="active"
-          mat-button>Configurações</button>
+          mat-button>Settings</button>
       </nav>
       <mat-divider class="bs-h24px bs-ml-40-force bs-mr-24-force"
         [vertical]="true"></mat-divider>
@@ -35,7 +35,7 @@
         <button class="bs-text-right-force"
                 mat-menu-item
                 (click)="logout()">
-          <span>Sair</span>
+          <span>Logout</span>
           <mat-icon class="bs-ml-8 bs-mr-0-force"
                     aria-hidden="true">logout</mat-icon>
         </button>

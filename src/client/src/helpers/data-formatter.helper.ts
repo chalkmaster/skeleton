@@ -60,7 +60,7 @@ export class DataFormatterHelper {
         const lat = Math.round(latlong[0] * 10000000) / 10000000;
         const long = Math.round(latlong[1] * 10000000) / 10000000;
 
-        return `<a href="https://www.google.com/maps/place/${lat},${long}" target="_blank" class="bs-no-print">ABRIR LINK</a>
+        return `<a href="https://www.google.com/maps/place/${lat},${long}" target="_blank" class="bs-no-print">OPEN LINK</a>
                 <span class="bs-print-info bs-print">lat:${lat}, long:${long}</span>`;
 
       case R.DATA.MASK.TYPES.TEXT:

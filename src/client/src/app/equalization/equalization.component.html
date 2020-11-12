@@ -23,7 +23,7 @@
                 </mat-icon>
               </div>
               <h3 class="mat-title bs-mg-0 bs-pr-16 bs-pt-16">
-                Equalização
+                Equalization
               </h3>
             </div>
           </div>
@@ -42,7 +42,7 @@
           <mat-tab *ngFor="let equalization of equalizations"
                    label="{{equalization?.reference}}">
             <ng-template matTabContent>
-              <h1 class="bs-print-info bs-print">Resumo de Equalização - Referencia: {{equalization?.reference}}</h1>
+              <h1 class="bs-print-info bs-print">Equalization Summary - Reference: {{equalization?.reference}}</h1>
               <app-equalization-summary [summaryModel]="equalization"></app-equalization-summary>
             </ng-template>
           </mat-tab>
@@ -58,7 +58,7 @@
                         mat-stroked-button
                         color="primary"
                         (click)="openHistory()">
-                  <span class="bs-pr-4">Histórico de Acesso</span>
+                  <span class="bs-pr-4">Access History</span>
                 </button>
               </div>
               <div class="bs-text-right bs-relative">
@@ -67,13 +67,13 @@
                         color="primary"
                         (click)="print()">
                   <mat-icon class="bs-mr-8">print</mat-icon>
-                  <span class="bs-text-uppercase">Imprimir</span>
+                  <span class="bs-text-uppercase">Print</span>
                 </button>
                 <button mat-raised-button
                         color="primary"
                         [disabled]="!true">
                   <mat-icon class="bs-mr-8">system_update_alt</mat-icon>
-                  <span class="bs-text-uppercase">EXCEL - Detalhamento</span>
+                  <span class="bs-text-uppercase">EXCEL - Details</span>
                 </button>
               </div>
             </div>

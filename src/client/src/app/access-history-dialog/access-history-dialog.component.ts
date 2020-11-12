@@ -63,7 +63,7 @@ export class AccessHistoryDialogComponent implements OnInit {
     printWindow.document.write(`
     <html>
       <head>
-        <title>Cadastros Vencidos</title>
+        <title>Sample</title>
       </head>
       <style>
         @media print {
